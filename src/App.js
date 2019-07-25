@@ -16,6 +16,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <input type="search" placeholder='recherche' />
         <CardList familles={this.state.familles}/>
       </div>
     );

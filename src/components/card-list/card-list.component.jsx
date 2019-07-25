@@ -10,7 +10,7 @@ const  CardList = props => {
           props.familles.map(famille => (
             <Card
               key={famille.id}
-              familles={famille}
+              famille={famille}
             />
           ))
         }
