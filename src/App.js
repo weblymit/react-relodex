@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CardList from './components/card-list/card-list.component'
+import SearchBox from './components/search-box/search-box.component'
 import './App.css';
 
 class App extends Component {
@@ -21,13 +22,12 @@ class App extends Component {
       )
     return (
       <div className="App">
-        <input
-          type="search"
-          placeholder='recherche'
-          onChange={e => this.setState({ searchField: e.target.value })}
-          
+        <SearchBox 
+          placeholder='recherche enfant'
+          handleChange={e => this.setState({ searchField: e.target.value })}
         />
-        {/* Si on utilise pas le seaerch on fait juste le code dessus */}
+        
+        {/* Si on utilise pas le search on fait juste le code dessus */}
         {/* <CardList familles={this.state.familles}/> */}
         {/* Code with le filter search */}
         <CardList familles={filterFamilles}/>
