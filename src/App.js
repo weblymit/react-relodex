@@ -4,7 +4,8 @@ import './App.css';
 
 class App extends Component {
   state = {
-    familles: []
+    familles: [],
+    searchField:''
   }
 
   componentDidMount() {
@@ -14,10 +15,23 @@ class App extends Component {
     
   }
   render() {
+    const { familles, searchField } = this.state;
+    const filterFamilles = familles.filter(famille =>
+      famille.name.toLowerCase().includes(searchField.toLowerCase())
+      )
     return (
       <div className="App">
-        <input type="search" placeholder='recherche' />
-        <CardList familles={this.state.familles}/>
+        <input
+          type="search"
+          placeholder='recherche'
+          onChange={e => this.setState({ searchField: e.target.value })}
+          
+        />
+        {/* Si on utilise pas le seaerch on fait juste le code dessus */}
+        {/* <CardList familles={this.state.familles}/> */}
+        {/* Code with le filter search */}
+        <CardList familles={filterFamilles}/>
+
       </div>
     );
 
