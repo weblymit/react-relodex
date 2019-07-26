@@ -15,6 +15,11 @@ class App extends Component {
       .then(users => this.setState({ familles: users }))
     
   }
+
+  handleChange = e => {
+    this.setState({ searchField: e.target.value })
+  }
+
   render() {
     const { familles, searchField } = this.state;
     const filterFamilles = familles.filter(famille =>
@@ -22,9 +27,10 @@ class App extends Component {
       )
     return (
       <div className="App">
+        <h1>Family Relodex</h1>
         <SearchBox 
           placeholder='recherche enfant'
-          handleChange={e => this.setState({ searchField: e.target.value })}
+          handleChange={this.handleChange}
         />
         
         {/* Si on utilise pas le search on fait juste le code dessus */}
